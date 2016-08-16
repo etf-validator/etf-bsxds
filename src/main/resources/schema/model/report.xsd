@@ -67,10 +67,10 @@
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
-                <xs:element name="columnExpressions" minOccurs="1" maxOccurs="1">
+                <xs:element name="rowExpressions" minOccurs="1" maxOccurs="1">
                     <xs:annotation>
                         <xs:documentation>Expressions that were used to collect data for each entry
-                            in a column</xs:documentation>
+                            in a row</xs:documentation>
                     </xs:annotation>
                     <xs:complexType>
                         <xs:sequence minOccurs="1" maxOccurs="unbounded">

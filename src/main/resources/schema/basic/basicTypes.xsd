@@ -323,7 +323,13 @@
     </xs:simpleType>
 
     <!-- =============================================================== -->
-    <xs:complexType name="RefType"/>
+    <xs:complexType name="RefType">
+        <xs:attribute name="ref" type="xs:string" use="required">
+            <xs:annotation>
+                <xs:documentation> References a test model item by its ID.</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+	</xs:complexType>    
 
     <!-- =============================================================== -->
     <xs:simpleType name="VersionType">
@@ -355,6 +361,9 @@
                     </xs:appinfo>
                 </xs:annotation>
             </xs:element>
+            <!-- temporary fix -->
+            <xs:element ref="label" minOccurs="0"/>
+            <xs:element ref="description" minOccurs="0"/>
         </xs:sequence>
     </xs:group>
 
@@ -446,7 +455,7 @@
                     </xs:complexContent>
                 </xs:complexType>
             </xs:element>
-            <xs:element name="itemHash" type="xs:base64Binary" minOccurs="1">
+            <xs:element name="itemHash" type="xs:base64Binary" minOccurs="0">
                 <xs:annotation>
                     <xs:documentation>The item is updated by the ETF whenever an item is modified
                         and can be used to detect changes</xs:documentation>
@@ -464,7 +473,7 @@
                             and will be synchonized by the ETF, e.g. a git URL</xs:documentation>
                     </xs:annotation>
                 </xs:element>
-                <xs:element name="localPath" type="xs:anyURI" minOccurs="1">
+                <xs:element name="localPath" type="xs:anyURI" minOccurs="0">
                     <xs:annotation>
                         <xs:documentation>Path to a synchronized local copy of the remote
                             data</xs:documentation>
